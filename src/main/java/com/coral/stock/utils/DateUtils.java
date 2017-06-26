@@ -1,4 +1,7 @@
-package com.cccis.oa.wechat.utils;
+package com.coral.stock.utils;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -6,10 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import static com.cccis.oa.wechat.utils.ConstantUtils.getConstantValue;
+import static com.coral.stock.utils.ConstantUtils.getConstantValue;
 
 /**
  * 日期工具类

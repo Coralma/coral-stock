@@ -1,4 +1,4 @@
-package com.cccis.oa.wechat.utils;
+package com.coral.stock.utils;
 
 /**
  * 常量工具类
