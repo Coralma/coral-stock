@@ -44,6 +44,21 @@ public final class StringUtils {
     }
 
     /**
+     * 判断字符串是否为Null
+     *
+     * @param strs 字符串数组
+     * @return boolean
+     */
+    public static boolean isNull(String... strs) {
+        for(String s : strs) {
+            if(isNull(s)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * 判断字符串为空或Null
      *
      * @param str 字符串

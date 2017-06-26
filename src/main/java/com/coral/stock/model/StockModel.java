@@ -35,14 +35,15 @@ import java.util.Date;
  */
 @Document(collection="StockModel")
 public class StockModel {
+    //基本属性
     private String stockName; //股票名字
-    private String openPrice;//今日开盘价
-    private String yesterdayClosePrice;//昨日收盘价
-    private String todayPrice;//当前价格
-    private String todayHighestPrice;//今日最高价
-    private String todayLowestPrice;//今日最低价
-    private String dealStokeNumber;//成交的股票数
-    private String dealStokeTotalAmount;//成交金额
+    private BigDecimal openPrice;//今日开盘价
+    private BigDecimal yesterdayClosePrice;//昨日收盘价
+    private BigDecimal todayPrice;//当前价格
+    private BigDecimal todayHighestPrice;//今日最高价
+    private BigDecimal todayLowestPrice;//今日最低价
+    private BigDecimal dealStokeNumber;//成交的股票数
+    private BigDecimal dealStokeTotalAmount;//成交金额
     private BigDecimal buyOneNumber;//买一量
     private BigDecimal buyOnePrice;//买一价格
     private BigDecimal buyTwoNumber;//买二量
@@ -65,6 +66,8 @@ public class StockModel {
     private BigDecimal sellFivePrice;//卖五价格
     private Date createDate;//日期
     private String createTime;//时间
+    //高级属性
+    private BigDecimal amplitude; //振幅
 
     public String getStockName() {
         return stockName;
@@ -74,59 +77,59 @@ public class StockModel {
         this.stockName = stockName;
     }
 
-    public String getOpenPrice() {
+    public BigDecimal getOpenPrice() {
         return openPrice;
     }
 
-    public void setOpenPrice(String openPrice) {
+    public void setOpenPrice(BigDecimal openPrice) {
         this.openPrice = openPrice;
     }
 
-    public String getYesterdayClosePrice() {
+    public BigDecimal getYesterdayClosePrice() {
         return yesterdayClosePrice;
     }
 
-    public void setYesterdayClosePrice(String yesterdayClosePrice) {
+    public void setYesterdayClosePrice(BigDecimal yesterdayClosePrice) {
         this.yesterdayClosePrice = yesterdayClosePrice;
     }
 
-    public String getTodayPrice() {
+    public BigDecimal getTodayPrice() {
         return todayPrice;
     }
 
-    public void setTodayPrice(String todayPrice) {
+    public void setTodayPrice(BigDecimal todayPrice) {
         this.todayPrice = todayPrice;
     }
 
-    public String getTodayHighestPrice() {
+    public BigDecimal getTodayHighestPrice() {
         return todayHighestPrice;
     }
 
-    public void setTodayHighestPrice(String todayHighestPrice) {
+    public void setTodayHighestPrice(BigDecimal todayHighestPrice) {
         this.todayHighestPrice = todayHighestPrice;
     }
 
-    public String getTodayLowestPrice() {
+    public BigDecimal getTodayLowestPrice() {
         return todayLowestPrice;
     }
 
-    public void setTodayLowestPrice(String todayLowestPrice) {
+    public void setTodayLowestPrice(BigDecimal todayLowestPrice) {
         this.todayLowestPrice = todayLowestPrice;
     }
 
-    public String getDealStokeNumber() {
+    public BigDecimal getDealStokeNumber() {
         return dealStokeNumber;
     }
 
-    public void setDealStokeNumber(String dealStokeNumber) {
+    public void setDealStokeNumber(BigDecimal dealStokeNumber) {
         this.dealStokeNumber = dealStokeNumber;
     }
 
-    public String getDealStokeTotalAmount() {
+    public BigDecimal getDealStokeTotalAmount() {
         return dealStokeTotalAmount;
     }
 
-    public void setDealStokeTotalAmount(String dealStokeTotalAmount) {
+    public void setDealStokeTotalAmount(BigDecimal dealStokeTotalAmount) {
         this.dealStokeTotalAmount = dealStokeTotalAmount;
     }
 
@@ -304,5 +307,13 @@ public class StockModel {
 
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
+    }
+
+    public BigDecimal getAmplitude() {
+        return amplitude;
+    }
+
+    public void setAmplitude(BigDecimal amplitude) {
+        this.amplitude = amplitude;
     }
 }

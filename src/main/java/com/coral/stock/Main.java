@@ -2,6 +2,7 @@ package com.coral.stock;
 
 import com.coral.stock.dao.StockModelDao;
 import com.coral.stock.model.StockModel;
+import com.coral.stock.service.StockCalculateService;
 import com.coral.stock.utils.DateUtils;
 import com.coral.stock.utils.HttpConnectionUtils;
 import org.springframework.context.ApplicationContext;
@@ -15,6 +16,7 @@ import java.math.BigDecimal;
 public class Main {
 
     StockModelDao stockModelDao;
+    StockCalculateService stockCalculateService;
 
     public static void main(String[] args) {
         Main main = new Main();
@@ -28,6 +30,7 @@ public class Main {
         //这个xml文件是Spring配置beans的文件，顺带一提，路径 在整个应用的根目录
         ApplicationContext ctx = new ClassPathXmlApplicationContext(paths);
         stockModelDao = (StockModelDao) ctx.getBean(StockModelDao.SPRING_BEAN_NAME);
+        stockCalculateService = (StockCalculateService) ctx.getBean(StockCalculateService.SPRING_BEAN_NAME);
         System.out.println("Init Stock App done.");
     }
 
@@ -57,13 +60,13 @@ public class Main {
     public void saveStock(String[] data) {
         StockModel sm = new StockModel();
         sm.setStockName(data[0]);
-        sm.setOpenPrice(data[1]);
-        sm.setYesterdayClosePrice(data[2]);
-        sm.setTodayPrice(data[3]);
-        sm.setTodayHighestPrice(data[4]);
-        sm.setTodayLowestPrice(data[5]);
-        sm.setDealStokeNumber(data[8]);
-        sm.setDealStokeTotalAmount(data[9]);
+        sm.setOpenPrice(new BigDecimal(data[1]));
+        sm.setYesterdayClosePrice(new BigDecimal(data[2]));
+        sm.setTodayPrice(new BigDecimal(data[3]));
+        sm.setTodayHighestPrice(new BigDecimal(data[4]));
+        sm.setTodayLowestPrice(new BigDecimal(data[5]));
+        sm.setDealStokeNumber(new BigDecimal(data[8]));
+        sm.setDealStokeTotalAmount(new BigDecimal(data[9]));
         sm.setBuyOneNumber(new BigDecimal(data[10]));
         sm.setBuyOnePrice(new BigDecimal(data[11]));
         sm.setBuyTwoNumber(new BigDecimal(data[12]));
@@ -86,6 +89,7 @@ public class Main {
         sm.setSellFivePrice(new BigDecimal(data[29]));
         sm.setCreateDate(DateUtils.toDate(data[30]));
         sm.setCreateTime(data[31]);
+        stockCalculateService.amplitudeCalculate(sm);
         stockModelDao.save(sm);
     }
 }

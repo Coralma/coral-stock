@@ -1,7 +1,6 @@
 package com.coral.stock.dao;
 
 import com.cccis.base.mongo.MBaseDao;
-import com.coral.crawler.mongoModel.CrawlURL;
 import com.coral.stock.model.StockModel;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.query.Criteria;
